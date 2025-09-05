@@ -24,15 +24,21 @@ jobs:
       - name: Run Integration Tests
         run: dotnet publish -c Release src\DevOpsDaysTasks.UI\ -o DevOpsDaysTasks /p:Version=1.0.0 /p:VersionName=BobCat
 
+      - name: Checkout external Files
+        uses: actions/checkout@v4
+        with:
+          repository: martinzimmermann/DevOpsDaysGraz2025-ExternalFiles
+          path: ExternalFiles
+
       - name: Copy Template
         run: |
           mkdir DevOpsDaysTasks/Templates
-          cp workshop_material\default-tasks.xml DevOpsDaysTasks\Templates\
+          cp ExternalFiles/default-tasks.xml DevOpsDaysTasks\Templates\
 
       - name: Copy Template
         run: |
           mkdir DevOpsDaysTasks/Help
-          cp workshop_material\Help.pdf DevOpsDaysTasks\Help\
+          cp ExternalFiles/Help.pdf DevOpsDaysTasks\Help\
 
       - name: Create Cert
         run: |
