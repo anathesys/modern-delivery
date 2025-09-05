@@ -28,7 +28,7 @@ jobs:
 
       - name: Copy Template
         run: |
-          mkdir DevOpsDaysTasks/Templates
+          mkdir DevOpsDaysTasks/Help
           cp workshop_material\default-tasks.xml DevOpsDaysTasks\Help\
 
       - name: Sign Release
